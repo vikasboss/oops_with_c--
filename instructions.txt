@@ -1,0 +1,22 @@
+1.How to setup c++ to run code with single command 
+(base) exoit@EXO-BLR-LT882:~/oops_with_c++$ cat ~/cpp_run.sh 
+#!/bin/bash
+
+# Check if a C++ source file is provided as an argument
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 <cpp_file>"
+    exit 1
+fi
+
+# Extract the filename without the extension
+filename=$(basename -- "$1")
+filename_without_extension="${filename%.*}"
+
+# Compile and run the C++ file
+g++ "$1" -o "$filename_without_extension" && "./$filename_without_extension"
+
+# Clean up the executable file
+rm "$filename_without_extension"
+2.create a alias via following command 
+alias cpp_run='bash ~/cpp_run.sh'
+3.Now run any c++ file using cpp_run file_name.cpp

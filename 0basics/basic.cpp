@@ -2,36 +2,65 @@
 #include <string>
 using namespace std;
 
-class Movie
-{
-private:
+class Movie {
+  // Data members
+  private:
     string title;
     int year;
     string genre;
 
-public:
-    Movie()
-    {
-        title = "";
-        year = -1;
-        genre = "";
+  public:
+    // Default constructor
+    Movie() {
+      title = "";
+      year = -1;
+      genre = "";
     }
 
-    Movie(string t, int y, string g)
-    {
-        title = t;
-        year = y;
-        genre = g;
+    // Parameterized constructor
+    Movie(string t, int y, string g) {
+      title = t;
+      year = y;
+      genre = g;
+    }
+    
+    // getters setters
+    string getTitle() {
+      return title;
+    }
+
+    void setTitle(string t) {
+      title = t;
+    }
+    
+    int getYear() {
+      return year;
+    }
+
+    void setYear(int y) {
+      year = y;
+    }
+    
+    string getGenre(){
+      return genre;
+    }
+    
+    void setGenre(string g) {
+      genre = g;
+    }
+    
+    void printDetails() {
+      cout << "Title: " << title << endl;
+      cout << "Year: " << year << endl;
+      cout << "Genre: " << genre << endl;
     }
 };
 
-int main()
-{
-    // Creating an instance of the Movie class using the parameterized constructor
-    Movie movie1("Inception", 2010, "Sci-Fi");
-
-    // Creating an instance of the Movie class using the default constructor
-    Movie movie2;
-
-    return 0;
+int main() {
+  Movie movie("The Lion King", 1994, "Adventure");
+  movie.printDetails();
+  
+  cout << "---" << endl;
+  movie.setTitle("Forrest Gump");
+  cout << "New title: " << movie.getTitle() << endl;
 }
